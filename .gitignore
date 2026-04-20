@@ -1,1 +1,31 @@
 .turbo
+node_modules/
+
+# macos
+.DS_Store
+
+# editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# build outputs
+dist/
+build/
+*.tsbuildinfo
+
+# logs
+*.log
+
+# env files
+.env
+.env.local
+.env.*.local
+
+# testing
+coverage/
+
+# misc
+Thumbs.db
