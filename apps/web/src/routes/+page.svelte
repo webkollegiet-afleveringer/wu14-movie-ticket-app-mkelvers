@@ -4,7 +4,7 @@
 	const user = $derived(page.data.user);
 </script>
 
-<main class="h-screen space-y-8 bg-background p-6">
+<main class="space-y-8 p-6">
 	<article class="[&>*:nth-child(3)]:mt-4">
 		{#if user}
 			<p class="text-sm text-foreground-muted">Welcome Back,</p>
