@@ -1,0 +1,19 @@
+{
+  "name": "movie-ticket-app",
+  "private": true,
+  "scripts": {
+    "build": "turbo run build",
+    "check-types": "turbo run check-types",
+    "dev": "turbo run dev"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "turbo": "^2.9.6"
+  },
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "packageManager": "bun@1.3.12"
+}
+
