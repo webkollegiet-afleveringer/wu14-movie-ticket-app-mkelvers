@@ -6,7 +6,7 @@ import { APIError } from 'better-auth/api';
 
 export const load: PageServerLoad = (event) => {
   if (event.locals.user) {
-    return redirect(302, '/demo/better-auth');
+    return redirect(302, '/');
   }
   return {};
 };
@@ -32,7 +32,7 @@ export const actions: Actions = {
       return fail(500, { message: 'Unexpected error' });
     }
 
-    return redirect(302, '/demo/better-auth');
+    return redirect(302, '/');
   },
   signUpEmail: async (event) => {
     const formData = await event.request.formData();
@@ -64,7 +64,7 @@ export const actions: Actions = {
       return fail(500, { message: 'Unexpected error' });
     }
 
-    return redirect(302, '/demo/better-auth');
+    return redirect(302, '/');
   },
   signUpSSO: async (event) => {
     const formData = await event.request.formData();
