@@ -2,6 +2,9 @@
 	import { page } from '$app/state';
 
 	const user = $derived(page.data.user);
+	const imageURL = 'https://image.tmdb.org/t/p/w500';
+	const { data } = $props();
+	const movies = $derived(data.upcomming);
 </script>
 
 <main class="space-y-8 p-6">
@@ -47,10 +50,10 @@
 		<div
 			class="flex snap-x snap-mandatory overflow-x-auto scroll-smooth pb-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
 		>
-			{#each Array(3) as _, i}
-				<a href="/movie/{i}" class="min-w-[95%] snap-start snap-always space-y-2 pr-4">
+			{#each movies?.results as movie}
+				<a href="/movie/{movie.id}" class="min-w-[95%] snap-start snap-always space-y-2 pr-4">
 					<img
-						src={`https://placehold.co/400x400`}
+						src={`${imageURL}${movie.backdrop_path}`}
 						alt="movie poster"
 						class="aspect-video w-full rounded-xl object-cover"
 					/>
