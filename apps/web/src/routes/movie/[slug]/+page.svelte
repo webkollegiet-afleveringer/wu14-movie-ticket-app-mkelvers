@@ -1,4 +1,8 @@
 <script lang="ts">
+	import type { PageProps } from './$types';
+
+	let { params }: PageProps = $props();
+
 	let isExpanded = $state(false);
 </script>
 
@@ -93,8 +97,11 @@
 			</button>
 		</div>
 
-		<button type="button" class="w-full rounded-xl bg-accent py-4 font-medium text-foreground">
+		<a
+			href="/movie/{params.slug}/select-seats"
+			class="block w-full rounded-xl bg-accent py-4 text-center font-medium text-foreground"
+		>
 			Book Ticket
-		</button>
+		</a>
 	</section>
 </main>
