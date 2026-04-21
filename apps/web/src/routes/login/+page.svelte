@@ -38,5 +38,10 @@
 		class="rounded-md bg-blue-600 px-4 py-2 text-white transition hover:bg-blue-700"
 		>Register</button
 	>
+	<button
+		formaction="?/signUpSSO"
+		class="rounded-md bg-blue-600 px-4 py-2 text-white transition hover:bg-blue-700"
+		>login with keycloack</button
+	>
 </form>
 <p class="text-red-500">{form?.message ?? ''}</p>
