@@ -15,7 +15,7 @@ const handleBetterAuth: Handle = async ({ event, resolve }) => {
   return svelteKitHandler({ event, resolve, auth, building });
 };
 
-export const handleFetch: HandleFetch = async ({ event, request, fetch }) => {
+export const handleFetch: HandleFetch = async ({ request, fetch }) => {
   const url = new URL(request.url);
   console.log("using fetch handler, for:", url.host)
   if (url.host !== "api.themoviedb.org") {
