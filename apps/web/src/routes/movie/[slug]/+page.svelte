@@ -8,7 +8,13 @@
 <main class="space-y-8 p-6">
 	<header class="flex items-center justify-between">
 		<a href="/explore">
-			<svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+			<svg
+				width="26"
+				height="26"
+				viewBox="0 0 26 26"
+				fill="none"
+				xmlns="http://www.w3.org/2000/svg"
+			>
 				<path
 					d="M16.25 19.5L9.75 13L16.25 6.5"
 					stroke="white"
@@ -55,7 +61,9 @@
 				<span>|</span>
 				<div class="flex items-center gap-1">
 					<svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B">
-						<path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+						<path
+							d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
+						/>
 					</svg>
 					<span class="text-foreground">4,9</span>
 				</div>
@@ -63,15 +71,16 @@
 		</div>
 
 		<div class="flex flex-wrap gap-2">
-			<span class="rounded-lg bg-background-muted px-4 py-2 text-sm text-foreground">Action</span>
-			<span class="rounded-lg bg-background-muted px-4 py-2 text-sm text-foreground">Fiction Fantasy</span>
-			<span class="rounded-lg bg-background-muted px-4 py-2 text-sm text-foreground">02h 43m</span>
+			<span class="rounded-lg bg-[#252932] px-4 py-2 text-sm text-foreground">Action</span>
+			<span class="rounded-lg bg-[#252932] px-4 py-2 text-sm text-foreground">Fiction Fantasy</span>
+			<span class="rounded-lg bg-[#252932] px-4 py-2 text-sm text-foreground">02h 43m</span>
 		</div>
 
 		<div class="space-y-2">
 			<h2 class="text-lg font-semibold text-foreground">Synopsis</h2>
 			<p class="text-sm text-foreground-muted">
-				Martial-arts master Shang-Chi confronts the past he thought he left behind when he's drawn into
+				Martial-arts master Shang-Chi confronts the past he thought he left behind when he's drawn
+				into
 				{#if !isExpanded}
 					...
 				{/if}
@@ -80,11 +89,7 @@
 					legacy he thought he left behind.
 				{/if}
 			</p>
-			<button
-				type="button"
-				onclick={() => (isExpanded = !isExpanded)}
-				class="text-sm text-accent"
-			>
+			<button type="button" onclick={() => (isExpanded = !isExpanded)} class="text-sm text-accent">
 				{isExpanded ? 'Read Less' : 'Read More'}
 			</button>
 		</div>
