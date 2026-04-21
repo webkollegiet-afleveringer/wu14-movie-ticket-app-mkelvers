@@ -18,7 +18,7 @@
 <div class="flex min-h-screen flex-col bg-background">
 	{@render children()}
 
-	<nav class="fixed right-0 bottom-0 left-0">
+	<nav class="fixed right-0 bottom-0 left-0 bg-background">
 		<div class="flex h-16 items-center justify-around px-4">
 			{#each navItems as { href, label }}
 				{@const isActive = page.url.pathname === href}
