@@ -48,7 +48,7 @@
 			class="flex snap-x snap-mandatory overflow-x-auto scroll-smooth pb-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
 		>
 			{#each Array(3) as _, i}
-				<div class="min-w-[95%] snap-start snap-always space-y-2 pr-4">
+				<a href="/movie/{i}" class="min-w-[95%] snap-start snap-always space-y-2 pr-4">
 					<img
 						src={`https://placehold.co/400x400`}
 						alt="movie poster"
@@ -56,7 +56,7 @@
 					/>
 					<p class="text-xl font-medium text-foreground">Example</p>
 					<p class="text-sm text-foreground-muted">January 2025</p>
-				</div>
+				</a>
 			{/each}
 		</div>
 	</article>

@@ -61,7 +61,7 @@
 			class="flex snap-x snap-mandatory overflow-x-auto scroll-smooth pb-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
 		>
 			{#each Array(5) as _, i}
-				<div class="min-w-[80%] snap-start snap-always space-y-2 pr-4">
+				<a href="/movie/{i}" class="min-w-[80%] snap-start snap-always space-y-2 pr-4">
 					<img
 						src="https://placehold.co/300x400"
 						alt="movie poster"
@@ -77,7 +77,7 @@
 							</svg>
 						{/each}
 					</div>
-				</div>
+				</a>
 			{/each}
 		</div>
 	</section>
@@ -92,7 +92,7 @@
 			class="flex snap-x snap-mandatory overflow-x-auto scroll-smooth pb-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
 		>
 			{#each Array(5) as _, i}
-				<div class="min-w-[40%] snap-start snap-always space-y-2 pr-3">
+				<a href="/movie/{i}" class="min-w-[40%] snap-start snap-always space-y-2 pr-3">
 					<img
 						src="https://placehold.co/200x250"
 						alt="movie poster"
@@ -100,7 +100,7 @@
 					/>
 					<p class="text-sm font-medium text-foreground">Movie Title</p>
 					<p class="text-xs text-foreground-muted">Action, Thriller</p>
-				</div>
+				</a>
 			{/each}
 		</div>
 	</section>
