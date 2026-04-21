@@ -1,13 +1,10 @@
 <script lang="ts">
-	import type { PageProps } from './$types';
-
-	let { params }: PageProps = $props();
 	let isExpanded = $state(false);
 </script>
 
 <main class="space-y-8 p-6">
 	<header class="flex items-center justify-between">
-		<a href="/explore">
+		<a href="/explore" title="go back to explore">
 			<svg
 				width="26"
 				height="26"
@@ -58,27 +55,29 @@
 			<h1 class="text-2xl font-semibold text-foreground">Shang - Chi</h1>
 			<div class="flex items-center gap-2 text-sm text-foreground-muted">
 				<span>Director: Destin Daniel Cretton</span>
-				<span>|</span>
+				<span class="text-[#696D74]">|</span>
 				<div class="flex items-center gap-1">
 					<svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B">
 						<path
 							d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
 						/>
 					</svg>
-					<span class="text-foreground">4,9</span>
+					<span class="text-foreground-muted">4,9</span>
 				</div>
 			</div>
 		</div>
 
 		<div class="flex flex-wrap gap-2">
-			<span class="rounded-lg bg-[#252932] px-4 py-2 text-sm text-foreground">Action</span>
-			<span class="rounded-lg bg-[#252932] px-4 py-2 text-sm text-foreground">Fiction Fantasy</span>
-			<span class="rounded-lg bg-[#252932] px-4 py-2 text-sm text-foreground">02h 43m</span>
+			<span class="rounded-lg bg-[#252932] px-4 py-2 text-sm text-foreground-muted">Action</span>
+			<span class="rounded-lg bg-[#252932] px-4 py-2 text-sm text-foreground-muted"
+				>Fiction Fantasy</span
+			>
+			<span class="rounded-lg bg-[#252932] px-4 py-2 text-sm text-foreground-muted">02h 43m</span>
 		</div>
 
 		<div class="space-y-2">
 			<h2 class="text-lg font-semibold text-foreground">Synopsis</h2>
-			<p class="text-sm text-foreground-muted">
+			<p class="text-sm text-[#696D74]">
 				Martial-arts master Shang-Chi confronts the past he thought he left behind when he's drawn
 				into
 				{#if !isExpanded}
