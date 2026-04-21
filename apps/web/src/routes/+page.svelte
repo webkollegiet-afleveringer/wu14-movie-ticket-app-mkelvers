@@ -11,6 +11,9 @@
 			<h2 class="text-xl text-foreground">
 				{user.name}
 			</h2>
+		{:else}
+			<p class="text-sm text-foreground-muted">You're not logged in</p>
+			<a href="/login" class="text-xl text-foreground">Click here to login</a>
 		{/if}
 
 		<div class="flex items-center gap-3 rounded-xl bg-background-muted px-4">
