@@ -1,12 +1,14 @@
 <script lang="ts">
 	import SeatMap from '$lib/components/seat-map.svelte';
+	import { goto } from '$app/navigation';
 	import type { PageProps } from './$types';
 
 	let { params }: PageProps = $props();
 	let selectedSeatIds = $state<string[]>([]);
 
 	const handleCheckout = (): void => {
-		console.log('selected seats', selectedSeatIds);
+		if (selectedSeatIds.length === 0) return;
+		goto(`/checkout?seats=${selectedSeatIds.join(',')}`);
 	};
 </script>
 
@@ -112,7 +114,8 @@
 	<button
 		type="button"
 		onclick={handleCheckout}
-		class="block w-full rounded-xl bg-accent py-4 text-center font-medium text-foreground"
+		disabled={selectedSeatIds.length === 0}
+		class="block w-full rounded-xl bg-accent py-4 text-center font-medium text-foreground disabled:opacity-50"
 	>
 		Checkout
 	</button>
