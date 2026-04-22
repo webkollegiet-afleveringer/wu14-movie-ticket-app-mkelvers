@@ -125,10 +125,11 @@
 					{:else}
 						<button
 							type="button"
-							class={`size-7 rounded-[10px] ${seatClassByState[cell.state]}`}
+							class={`size-7 rounded-[10px] ${seatClassByState[cell.state]} disabled:bg-reserved`}
 							aria-label={`${cell.id} ${cell.state} seat`}
 							aria-pressed={cell.state === 'selected'}
 							onclick={() => handleSeatClick(cell)}
+							disabled={cell.state === 'reserved'}
 						></button>
 					{/if}
 				{/each}
