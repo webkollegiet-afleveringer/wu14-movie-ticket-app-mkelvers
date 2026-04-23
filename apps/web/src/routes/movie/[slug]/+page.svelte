@@ -1,7 +1,8 @@
 <script lang="ts">
 	import type { PageProps } from './$types';
 
-	let { params }: PageProps = $props();
+	let { data, params }: PageProps = $props();
+	let movie = $derived(data.movie);
 
 	let isExpanded = $state(false);
 </script>
@@ -43,22 +44,31 @@
 	<div
 		class="flex snap-x snap-mandatory overflow-x-auto scroll-smooth pb-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
 	>
-		{#each Array(3) as _, i}
+		{#if movie?.backdrop_path}
 			<div class="min-w-[80%] snap-start snap-always pr-4">
 				<img
-					src="https://placehold.co/300x450"
-					alt="movie poster"
+					src={`https://image.tmdb.org/t/p/w500${movie.backdrop_path}`}
+					alt={movie.title}
 					class="aspect-2/3 w-full rounded-xl object-cover"
 				/>
 			</div>
-		{/each}
+		{/if}
+		{#if movie?.poster_path}
+			<div class="min-w-[80%] snap-start snap-always pr-4">
+				<img
+					src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+					alt={movie.title}
+					class="aspect-2/3 w-full rounded-xl object-cover"
+				/>
+			</div>
+		{/if}
 	</div>
 
 	<section class="space-y-4">
 		<div class="space-y-2">
-			<h1 class="text-2xl font-semibold text-foreground">Shang - Chi</h1>
+			<h1 class="text-2xl font-semibold text-foreground">{movie?.title}</h1>
 			<div class="flex items-center gap-2 text-sm text-foreground-muted">
-				<span>Director: Destin Daniel Cretton</span>
+				<span>{movie?.release_date?.slice(0, 4)}</span>
 				<span class="text-[#696D74]">|</span>
 				<div class="flex items-center gap-1">
 					<svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B">
@@ -66,30 +76,31 @@
 							d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
 						/>
 					</svg>
-					<span class="text-foreground-muted">4,9</span>
+					<span class="text-foreground-muted">{movie?.vote_average?.toFixed(1)}</span>
 				</div>
 			</div>
 		</div>
 
 		<div class="flex flex-wrap gap-2">
-			<span class="rounded-lg bg-[#252932] px-4 py-2 text-sm text-foreground-muted">Action</span>
-			<span class="rounded-lg bg-[#252932] px-4 py-2 text-sm text-foreground-muted"
-				>Fiction Fantasy</span
-			>
-			<span class="rounded-lg bg-[#252932] px-4 py-2 text-sm text-foreground-muted">02h 43m</span>
+			{#each movie?.genres || [] as genre}
+				<span class="rounded-lg bg-[#252932] px-4 py-2 text-sm text-foreground-muted"
+					>{genre.name}</span
+				>
+			{/each}
+			{#if movie?.runtime}
+				<span class="rounded-lg bg-[#252932] px-4 py-2 text-sm text-foreground-muted"
+					>{Math.floor(movie.runtime / 60)}h {movie.runtime % 60}m</span
+				>
+			{/if}
 		</div>
 
 		<div class="space-y-2">
 			<h2 class="text-lg font-semibold text-foreground">Synopsis</h2>
 			<p class="text-sm text-[#696D74]">
-				Martial-arts master Shang-Chi confronts the past he thought he left behind when he's drawn
-				into
 				{#if !isExpanded}
-					...
-				{/if}
-				{#if isExpanded}
-					the web of the mysterious Ten Rings organization, forcing him to confront his past and the
-					legacy he thought he left behind.
+					{movie?.overview?.slice(0, 150)}...
+				{:else}
+					{movie?.overview}
 				{/if}
 			</p>
 			<button type="button" onclick={() => (isExpanded = !isExpanded)} class="text-sm text-accent">
