@@ -13,7 +13,7 @@
 
 <main class="space-y-8 overflow-x-hidden p-6">
 	<header class="grid grid-cols-[26px_1fr_26px] items-end">
-		<button onclick={() => goto('-1')} title="go back" class="col-start-1">
+		<button onclick={() => history.back()} title="go back" class="col-start-1">
 			<svg
 				width="26"
 				height="26"
