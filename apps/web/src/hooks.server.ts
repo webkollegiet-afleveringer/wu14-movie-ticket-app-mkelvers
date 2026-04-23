@@ -37,7 +37,13 @@ export const handleFetch: HandleFetch = async ({ request, fetch }) => {
   const response = await fetch(request);
   if (response.ok) {
     const data = await response.clone().json()
-    redisClient.json.SET(url.pathname, "$", data);
+    //redisClient.json.SET(url.pathname, "$", data);
+
+    redisClient
+      .multi()
+      .json.SET(url.pathname, "$", data)
+      .expire(url.pathname, 3600)
+      .exec();
   }
   console.log("crafting new reponse")
   const headers = new Headers(response.headers);
