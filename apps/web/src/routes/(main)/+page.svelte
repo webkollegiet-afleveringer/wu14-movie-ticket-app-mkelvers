@@ -1,10 +1,10 @@
 <script lang="ts">
 	import { page } from '$app/state';
+	import { TMDB_URL } from '$lib/globals.js';
 
 	const user = $derived(page.data.user);
-	const imageURL = 'https://image.tmdb.org/t/p/w500';
 	const { data } = $props();
-	const movies = $derived(data.upcomming);
+	const movies = $derived(data.upcoming);
 </script>
 
 <main class="space-y-8 p-6">
@@ -53,12 +53,12 @@
 			{#each movies?.results as movie}
 				<a href="/movie/{movie.id}" class="min-w-[95%] snap-start snap-always space-y-2 pr-4">
 					<img
-						src={`${imageURL}${movie.backdrop_path}`}
+						src={`${TMDB_URL}${movie.backdrop_path}`}
 						alt="movie poster"
 						class="aspect-video w-full rounded-xl object-cover"
 					/>
-					<p class="text-xl font-medium text-foreground">Example</p>
-					<p class="text-sm text-foreground-muted">January 2025</p>
+					<p class="text-xl font-medium text-foreground">{movie.title}</p>
+					<p class="text-sm text-foreground-muted">{movie.release_date}</p>
 				</a>
 			{/each}
 		</div>

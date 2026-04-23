@@ -8,6 +8,6 @@ export const load: PageServerLoad = async ({ fetch }) => {
     });
 
   return {
-    upcomming: upcoming.data
+    upcoming: upcoming.data
   };
 };
