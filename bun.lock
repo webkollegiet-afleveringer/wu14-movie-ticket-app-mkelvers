@@ -4,6 +4,9 @@
   "workspaces": {
     "": {
       "name": "movie-ticket-app",
+      "dependencies": {
+        "jiti": "^2.6.1",
+      },
       "devDependencies": {
         "turbo": "^2.9.6",
       },
