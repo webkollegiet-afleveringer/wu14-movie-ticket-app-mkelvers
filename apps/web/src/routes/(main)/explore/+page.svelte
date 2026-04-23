@@ -1,5 +1,10 @@
 <script lang="ts">
 	import { page } from '$app/state';
+	import { TMDB_URL } from '$lib/globals.js';
+
+  const { data } = $props();
+  const topMovies = $derived(data.topMovies)
+  const recommended = $derived(data.recommended)
 </script>
 
 <main class="space-y-8 p-6 pb-24">
@@ -68,14 +73,14 @@
 		<div
 			class="flex snap-x snap-mandatory overflow-x-auto scroll-smooth pb-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
 		>
-			{#each Array(5) as _, i}
-				<a href="/movie/{i}" class="min-w-[80%] snap-start snap-always space-y-2 pr-4">
+			{#each topMovies?.results as movie}
+				<a href="/movie/{movie.id}" class="min-w-[80%] snap-start snap-always space-y-2 pr-4">
 					<img
-						src="https://placehold.co/300x400"
+						src={`${TMDB_URL}${movie.poster_path}`}
 						alt="movie poster"
 						class="aspect-3/4 w-full rounded-xl object-cover"
 					/>
-					<p class="text-sm font-medium text-foreground">Movie Title</p>
+					<p class="text-sm font-medium text-foreground">{movie.title}</p>
 					<div class="flex items-center gap-0.5">
 						{#each Array(5) as _, j}
 							<svg width="20" height="20" viewBox="0 0 24 24" fill="#F59E0B">
@@ -99,15 +104,14 @@
 		<div
 			class="flex snap-x snap-mandatory overflow-x-auto scroll-smooth pb-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
 		>
-			{#each Array(5) as _, i}
-				<a href="/movie/{i}" class="min-w-[40%] snap-start snap-always space-y-2 pr-3">
+			{#each recommended?.results ?? [] as movie}
+				<a href="/movie/{movie.id}" class="min-w-[40%] snap-start snap-always space-y-2 pr-3">
 					<img
-						src="https://placehold.co/200x250"
+						src={`${TMDB_URL}${movie.poster_path}`}
 						alt="movie poster"
 						class="aspect-4/5 w-full rounded-xl object-cover"
 					/>
-					<p class="text-sm font-medium text-foreground">Movie Title</p>
-					<p class="text-xs text-foreground-muted">Action, Thriller</p>
+					<p class="text-sm font-medium text-foreground">{movie.title}</p>
 				</a>
 			{/each}
 		</div>
