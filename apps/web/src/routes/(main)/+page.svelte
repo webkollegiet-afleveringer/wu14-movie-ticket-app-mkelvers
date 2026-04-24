@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { page } from '$app/state';
 	import { TMDB_URL } from '$lib/globals.js';
+	import { formatTime } from '$lib/utils.js';
 
 	const user = $derived(page.data.user);
 	const { data } = $props();
@@ -58,7 +59,7 @@
 						class="aspect-video w-full rounded-xl object-cover"
 					/>
 					<p class="text-xl font-medium text-foreground">{movie.title}</p>
-					<p class="text-sm text-foreground-muted">{movie.release_date}</p>
+					<p class="text-sm text-foreground-muted">{formatTime(movie.release_date)}</p>
 				</a>
 			{/each}
 		</div>
